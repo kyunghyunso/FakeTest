@@ -33,7 +33,7 @@ class Auth extends CI_Controller {
             redirect('admin/addQnA');
         }else{
             $this->_reset_cookie('username', $username);
-            redirect('testing/answer');
+            redirect('testing/listing_question');
         }
     }
     

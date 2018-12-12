@@ -10,13 +10,10 @@ class Testing extends CI_Controller {
             $this->load->model('qna_model');
         }
 
-        public function answer()  //num 받기
+        public function listing_question()  //num 받기
         {
-        $this->load->view('head');        
-        $Questions = $this->qna_model->getAllQuestions();
-        $ThisQuestion = $this->qna_model->getQuestion($Questions, 1);
-        $this->load->view('answer', $ThisQuestion);
-        $this->load->view('footer');
+        $data['questions'] =  $this->qna_model->getAllQuestions();
+        $this->load->view('client/question_session', $data);
         }
 
         public function result()
@@ -26,9 +23,13 @@ class Testing extends CI_Controller {
         $this->load->view('footer');
         }
 
-        public function nextquestion()
+        public function question($order)
         {
-        $this->load->view('building');
+            if ($order>=3) redirect('testing/result');
+            $data['order'] = $order;
+            $this->load->view('head');            
+            $this->load->view('answer', $data);
+            $this->load->view('footer');
         }
 
 }

@@ -7,11 +7,8 @@ class Qna_model extends CI_Model {
     }
  
     function getAllQuestions(){
-        return $this->db->query("SELECT * FROM QnA")->result_object();
+        $question = $this->db->query("SELECT * FROM QnA")->result_object();
+        return json_encode($question, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
     }   
-
-    function getQuestion($Questions, $order){
-        return $Questions[$order];
-    }
 
 }
