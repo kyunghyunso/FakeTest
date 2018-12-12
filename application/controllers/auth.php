@@ -3,12 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
 
-    public function login()
+    public function login($realname ='')
 	{
+        if ($realname !='') {
+        $this->_reset_cookie('realname', $realname);
+        }
         $this->_reset_cookie('username');
         $this->load->view('head');
         $this->load->view('login');
         $this->load->view('footer');
+        var_dump(utf8_decode($_COOKIE['realname']));
     }
     
     public function logout() 
@@ -33,6 +37,7 @@ class Auth extends CI_Controller {
             redirect('admin/addQnA');
         }else{
             $this->_reset_cookie('username', $username);
+            
             redirect('testing/listing_question');
         }
     }
@@ -40,7 +45,7 @@ class Auth extends CI_Controller {
     public function _reset_cookie($name, $value='')
     {
         $cookie = array(  //TODO:  domain 바꾸고 환경에 넣기
-            'name' => 'username',
+            'name' => $name,
             'value' => $value,
             'expire' => $value==''?'':'0'
             //'domain' => 'localhost'
