@@ -29,6 +29,7 @@ class Testing extends CI_Controller {
         {
         $this->load->view('head');
         $this->load->view('result');
+        $this->load->view('share');
         $this->load->view('footer');
         }
 

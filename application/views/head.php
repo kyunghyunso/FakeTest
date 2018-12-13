@@ -26,5 +26,4 @@
     </a>
     </nav>
     <div id="mainContents" class="container">
-    <?php var_dump(urldecode($_COOKIE['realname']));?>
 
