@@ -16,13 +16,6 @@ class Testing extends CI_Controller {
         $this->load->view('client/question_session', $data);
         }
 
-        public function result()
-        {
-        $this->load->view('head');
-        $this->load->view('result');
-        $this->load->view('footer');
-        }
-
         public function question($order)
         {
             if ($order>=3) redirect('testing/result');
@@ -31,5 +24,14 @@ class Testing extends CI_Controller {
             $this->load->view('answer', $data);
             $this->load->view('footer');
         }
+
+        public function result()
+        {
+        $this->load->view('head');
+        $this->load->view('result');
+        $this->load->view('footer');
+        }
+
+        
 
 }

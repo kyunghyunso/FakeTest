@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 
-	public function index()  //num 받기
+	public function log($realname ='')
 	{
-        $this->load->view('head');
-        $this->load->view('login');
-        $this->load->view('footer');
+        $this->mylib->_reset_cookie('realname', $realname);
+        echo(urldecode($_COOKIE['realname']));
+        redirect('Auth/login');
     }
 
 }
