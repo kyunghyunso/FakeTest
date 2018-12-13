@@ -25,7 +25,7 @@ document.querySelector('#makelink').addEventListener('click', function(event){
     }
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     var data='';
-    data += "fri="+ document.querySelector('#UserName').value;
+    data += "friend_name="+ document.querySelector('#UserName').value;
     console.log(data);
     xhr.send(data); 
 });
