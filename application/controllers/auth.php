@@ -12,7 +12,6 @@ class Auth extends CI_Controller {
         $this->load->view('head');
         $this->load->view('login');
         $this->load->view('footer');
-        var_dump(utf8_decode($_COOKIE['realname']));
     }
     
     public function logout() 
