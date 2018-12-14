@@ -5,6 +5,6 @@ class Ajax extends CI_Controller {
 
 	public function make_share_link()
 	{
-	echo("".urldecode($_POST['friend_name']));	
+	echo(site_url('main/index/'.urlencode($_POST['friend_name'])));	
 	}
 }

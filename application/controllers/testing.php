@@ -28,7 +28,17 @@ class Testing extends CI_Controller {
         public function result()
         {
         $this->load->view('head');
-        $this->load->view('result');
+        $username = trim($_COOKIE['username']);
+        $realname = empty($_COOKIE['realname'])? "unknown": trim(urldecode($_COOKIE['realname']));
+        
+        if ($realname == $username){        
+            $this->load->view('result_same');
+        }else if($realname =="unknown"){
+            $this->load->view('result_unknown');
+        }else if($realname != $username){
+            $this->load->view('result_diff');
+        }
+
         $this->load->view('share');
         $this->load->view('footer');
         }
